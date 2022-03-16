@@ -6,10 +6,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 export default function SelectDateAndTime({navigation}) {
  
     return (
-        <ScrollView>
         <View style={styles.container}>
+        <ScrollView>
            <View style={{backgroundColor:'white',marginLeft:15, marginRight:15,marginBottom:'6%',alignItems:'center'}}>
-           <Ionicons name="arrow-back" size={25} color="#ffffff" style={styles.header_icon} onPress={() => navigation.goBack()}/>
+           <Ionicons name="arrow-back" size={25} style={styles.header_icon} onPress={() => navigation.goBack()}/>
 
                <Text style={{color:'black', fontWeight:'bold',fontSize:22}}>Selected Services</Text>
            </View>
@@ -19,34 +19,7 @@ export default function SelectDateAndTime({navigation}) {
            <CheckCard header="Hair Wash Herbel" price="$30" duration="Duration : 20 Min" gender="Women Only" text="Looking for a quick hair cut? This the on for you."/>
            <CheckCard header="Hair Wash Herbel" price="$30" duration="Duration : 20 Min" gender="Women Only" text="Looking for a quick hair cut? This the on for you."/>
 
-            {/* <View style={{  width: '90%', borderWidth: 0.5, flexDirection: 'column' , marginTop:25,borderRadius:10, borderColor:'gray',marginRight:0,marginLeft:'5%' }}>
-                        
-                <Text style={{ backgroundColor:'#D20909',marginRight:282, height:118, width:12}}></Text>
-                <Text style={{marginTop:-110,marginLeft:20 ,fontSize:18,color:'black',fontWeight:'bold'}}> Professional Hair Wash</Text>
-                <Text style={{marginTop:10,marginLeft:20 ,fontSize:15,color:'black'}}> Duration 30 min * Women only</Text>
-                <Text style={{marginLeft:20 ,fontSize:15,color:'black'}}> Looking for a quick hair cut looking for you</Text>
-                <Text style={{marginTop:-75,marginLeft:325 ,fontSize:18,color:'black',fontWeight:'bold'}}> $25</Text>
-            </View>
-            <View style={{  width: 370,height: 119, borderWidth: 0.5, flexDirection: 'column' , marginTop:25,borderRadius:10, borderColor:'gray',marginRight:0,marginLeft:15 }}>
-                        
-                        <Text style={{ backgroundColor:'red',marginRight:282, height:118,borderRadius:10, width:12}}></Text>
-        
-                        <Text style={{marginTop:-110,marginLeft:20 ,fontSize:18,color:'black',fontWeight:'bold'}}> Hair Spa Wash</Text>
-                        <Text style={{marginTop:10,marginLeft:20 ,fontSize:15,color:'black'}}> Duration 30 min * Women only</Text>
-                        <Text style={{marginLeft:20 ,fontSize:15,color:'black'}}> Looking for a quick hair cut looking for you</Text>
-        
-                        <Text style={{marginTop:-75,marginLeft:325 ,fontSize:18,color:'black',fontWeight:'bold'}}> $25</Text>
-            </View>
-            <View style={{  width: 370,height: 119, borderWidth: 0.5, flexDirection: 'column' , marginTop:25,borderRadius:10, borderColor:'gray',marginRight:0,marginLeft:15 }}>
-                        
-                        <Text style={{ backgroundColor:'red',marginRight:282, height:118,borderRadius:10, width:12}}></Text>
-        
-                        <Text style={{marginTop:-110,marginLeft:20 ,fontSize:18,color:'black',fontWeight:'bold'}}> Child Hair Cut</Text>
-                        <Text style={{marginTop:10,marginLeft:20 ,fontSize:15,color:'black'}}> Duration 30 min * Women only</Text>
-                        <Text style={{marginLeft:20 ,fontSize:15,color:'black'}}> Looking for a quick hair cut looking for you</Text>
-        
-                        <Text style={{marginTop:-75,marginLeft:325 ,fontSize:18,color:'black',fontWeight:'bold'}}> $25</Text>
-            </View> */}
+       
 
 
             <View style={{width:'90%',marginLeft:'5%'}}>
@@ -72,8 +45,11 @@ export default function SelectDateAndTime({navigation}) {
                     <Text style={{marginLeft:20 ,fontSize:15,color:'black'}}> Your payment data</Text>
                     <Text style={{marginTop:-30,marginLeft:335 ,fontSize:18,color:'black',fontWeight:'bold'}}> $255</Text> */}
             
-        </View>
         </ScrollView>
+        <TouchableOpacity onPress={()=>navigation.navigate('TimeAndDate')} style={{ backgroundColor: '#D20909',}}>
+                <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: 'bold', marginVertical: 10 }}>Continue</Text>
+            </TouchableOpacity>
+        </View>
     );
 
 }
@@ -98,7 +74,7 @@ const CheckCard = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 5,
+        // padding: 5,
         paddingTop: 15,
         backgroundColor: '#fff'
         //paddingTop: 300

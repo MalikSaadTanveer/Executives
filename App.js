@@ -11,6 +11,8 @@ import OfferScreen from './src/screens/OfferScreen';
 import SalonBranchDetail from './src/screens/SalonBranchDetail';
 import SelectService from './src/screens/SelectService';
 import SelectDateAndTime from './src/screens/SelectDateAndTime';
+import BarbersDetails from './src/screens/BarbersDetails';
+import TimeAndDate from './src/screens/TimeAndDate';
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
         <Stack.Screen name='SalonBranchDetail' component={SalonBranchDetail} />
         <Stack.Screen name='SelectService' component={SelectService} />
         <Stack.Screen name='SelectDateAndTime' component={SelectDateAndTime} />
+        <Stack.Screen name='BarbersDetails' component={BarbersDetails} />
+        <Stack.Screen name='TimeAndDate' component={TimeAndDate} />
 
       </Stack.Navigator>
     </NavigationContainer>
