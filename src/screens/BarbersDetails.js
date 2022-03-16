@@ -42,7 +42,7 @@ const listData = [
 ]
 
 const BarbersDetails = ({ navigation,route }) => {
-    const barberName = route.params.barberName;
+    const barberName = route.params?.barberName;
     return (
         <View style={styles.container}>
             <View style={{ backgroundColor: '#D20909', padding: 12, alignItems: 'center' }}>
@@ -52,8 +52,8 @@ const BarbersDetails = ({ navigation,route }) => {
 
 
             <View style={styles.inner} >
-                <Text style={styles.barberName}>{barberName}</Text>
-                <ScrollView style={{marginBottom:112}}>
+                <ScrollView style={{marginBottom:60,marginTop:12}}>
+                {barberName && <Text style={styles.barberName}>{barberName}</Text>}
                 {
                     listData.map((item, index) => (
                         <Pressable key={index} onPress={() =>navigation.navigate('SelectService',item.data)}>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     },
     barberName: {
         color: '#D20909',
-        paddingVertical: 12,
+        paddingTop: 12,
         fontSize: 20,
         fontWeight: 'bold',
     },

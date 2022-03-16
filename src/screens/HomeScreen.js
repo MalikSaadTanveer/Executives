@@ -430,7 +430,7 @@ export default function HomeScreen({ navigation }) {
                             <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                             <ScrollView horizontal={true} >
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                                        <TouchableOpacity onPress={() => navigation.navigate('SalonBranch')}>
+                                        <TouchableOpacity onPress={() => navigation.navigate('BarbersDetails',{barberName:'ZEE THE BARBER'})}>
 
                                             <View style={{ flexDirection: 'column', marginLeft: 10 }}>
                                                 <View>
@@ -445,7 +445,7 @@ export default function HomeScreen({ navigation }) {
                                                 </View>
                                             </View>
                                         </TouchableOpacity>
-                                        <TouchableOpacity onPress={() => navigation.navigate('SalonBranch')}>
+                                        <TouchableOpacity onPress={() =>  navigation.navigate('BarbersDetails',{barberName:'ALEX MOROZ'})}>
 
                                             <View style={{ flexDirection: 'column', marginLeft: 20 }}>
                                                 <View>
@@ -463,7 +463,7 @@ export default function HomeScreen({ navigation }) {
                                     </View>
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                                         
-                                        <TouchableOpacity onPress={() => navigation.navigate('SalonBranch')}>
+                                        <TouchableOpacity onPress={() =>  navigation.navigate('BarbersDetails',{barberName:'SEBASTIAN MAKATA'})}>
 
                                             <View style={{ flexDirection: 'column', marginLeft: 20,marginRight: 10 }}>
                                                 <View>

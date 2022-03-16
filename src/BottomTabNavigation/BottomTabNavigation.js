@@ -3,7 +3,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicicons from 'react-native-vector-icons/Ionicons'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Entypo from 'react-native-vector-icons/Entypo'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -11,6 +11,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import HomeScreen from '../screens/HomeScreen';
 import MyAppointmentScreen from '../screens/MyAppointmentScreen';
 import MyProfileScreen from '../screens/MyProfileScreen';
+import Offer from '../screens/OfferScreen';
+import BarbersDetails from '../screens/BarbersDetails';
 const Tab = createBottomTabNavigator();
 export default function BottomTabNavigation() {
     return (
@@ -56,20 +58,20 @@ export default function BottomTabNavigation() {
                 //   }}
             />
 
-            <Tab.Screen name="MyProfile" component={MyAppointmentScreen} 
+            <Tab.Screen name="Appointment" component={MyAppointmentScreen} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
-                tabBarIcon: ({focused}) => {           return <Ionicons name="person-outline" size={26} color={focused? '#edf2fa':'lightgrey'}/>;          }  
+                tabBarIcon: ({focused}) => {           return <AntDesign name="calendar" size={26} color={focused? '#edf2fa':'lightgrey'}/>;          }  
             }}
             />
-            <Tab.Screen name="Services" component={MyProfileScreen} 
+            <Tab.Screen name="Services" component={BarbersDetails} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
-                tabBarIcon: ({focused}) => {           return <AntDesign name="customerservice" size={26} 
+                tabBarIcon: ({focused}) => {           return <Entypo name="archive" size={26} 
                 color={focused? '#edf2fa':'lightgrey'}/>;          }  
             }}
             />
-            <Tab.Screen name="Offers" component={MyProfileScreen} 
+            <Tab.Screen name="Offers" component={Offer} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
                 tabBarIcon: ({focused}) => {           return <MaterialCommunityIcons name="offer" size={26}color={focused? '#edf2fa':'lightgrey'}/>;          }  

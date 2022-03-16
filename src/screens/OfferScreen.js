@@ -31,15 +31,12 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
         <View style={styles.container}>
                  {OrientationStatus == 'PortraitMode' ?
                  <>
-        <View style={{ width: '100%', backgroundColor: '#D20909', height:windowHeight * 0.08,position:'relative',marginBottom:'6%' }}>
-                <Ionicons name="arrow-back" size={25} color="#ffffff" style={styles.header_icon} onPress={() => navigation.goBack()}/>
-        <View>
-            <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', alignSelf: 'center', marginVertical: 20 }}>Offers
-            </Text>
-        </View>
-    </View>
+                 <View style={{ backgroundColor: '#D20909', padding: 12, alignItems: 'center',marginBottom:12 }}>
+                <Ionicons name="arrow-back" size={25} style={styles.header_icon} onPress={() => navigation.goBack()} />
+                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Offers</Text>
+            </View>
             
-            
+            <ScrollView>
             <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
                 <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
                     <Text style={{color:'white',fontSize:16,fontWeight:'bold', transform:[{rotate:'-90deg'}]}}>Discount</Text>
@@ -96,6 +93,7 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                     </View>
                 </View>
             </View>
+            </ScrollView>
             </>
             :
             <ScrollView>
@@ -106,7 +104,6 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
             </Text>
         </View>
     </View>
-            
             
             <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
                 <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
