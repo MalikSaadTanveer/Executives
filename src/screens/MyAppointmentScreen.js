@@ -6,7 +6,8 @@ import SegmentedControlTab from "react-native-segmented-control-tab";
 
 import Entypo from 'react-native-vector-icons/Entypo'
 const windowWidth = Dimensions.get('screen').width;
-  const windowHeight = Dimensions.get('screen').height;
+const windowHeight = Dimensions.get('screen').height;
+
 export default function MyAppointmentScreen({ navigation }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const handleIndexChange = index => {
@@ -17,7 +18,7 @@ export default function MyAppointmentScreen({ navigation }) {
     //       selectedIndex: index
     //     });
   }
-  
+
   const [OrientationStatus, setorientationStatus] = useState('PortraitMode');
   useEffect(() => {
     // if(windowHeight>windowWidth){
@@ -29,7 +30,7 @@ export default function MyAppointmentScreen({ navigation }) {
     //     console.log("width is greater")
     // }
     const d = Dimensions.addEventListener('change', getOrientation);
-    return ()=>{
+    return () => {
       d.remove();
     }
   }, []);
@@ -42,6 +43,64 @@ export default function MyAppointmentScreen({ navigation }) {
       console.log(OrientationStatus)
     }
   };
+
+  const upcoming = [
+    {
+      image: require('../images/complete.jpg'),
+      status: 'Upcoming',
+      title: 'Addictive Beauty',
+      desc: "West minister Business Road, UK",
+      time: '16,April 2020-05:00 pm',
+    },
+    {
+      image: require('../images/complete.jpg'),
+      status: 'Upcoming',
+      title: 'Addictive Beauty',
+      desc: "West minister Business Road, UK",
+      time: '16,April 2020-05:00 pm',
+    },
+  ]
+  const past = [
+    {
+      image: require('../images/complete.jpg'),
+      status: 'Completed',
+      title: 'Addictive Beauty',
+      desc: "West minister Business Road, UK",
+      time: '16,April 2020-05:00 pm',
+    },
+    {
+      image: require('../images/complete.jpg'),
+      status: 'Completed',
+      title: 'Addictive Beauty',
+      desc: "West minister Business Road, UK",
+      time: '16,April 2020-05:00 pm',
+    },
+  ]
+  const cancel = [
+    {
+      image: require('../images/executive.jpg'),
+      status: 'Cancelled',
+      title: 'Addictive Beauty',
+      desc: "West minister Business Road, UK",
+      time: '16,April 2020-05:00 pm',
+    },
+    {
+      image: require('../images/complete.jpg'),
+      status: 'Cancelled',
+      title: 'Addictive Beauty',
+      desc: "West minister Business Road, UK",
+      time: '16,April 2020-05:00 pm',
+    },
+    {
+      image: require('../images/complete.jpg'),
+      status: 'Cancelled',
+      title: 'Addictive Beauty',
+      desc: "West minister Business Road, UK",
+      time: '16,April 2020-05:00 pm',
+    },
+  ]
+
+
   return (
 
 
@@ -51,68 +110,108 @@ export default function MyAppointmentScreen({ navigation }) {
       {OrientationStatus == 'PortraitMode' ?
         <>
           <View style={styles.header_container}>
-            <View style={{ flexDirection: 'row',justifyContent:'center' }}>
-              <TouchableOpacity style={styles.header_icon} onPress={() => navigation.goBack()}>
-                <Text  >
-                <Ionicons name="arrow-back" size={25} color="#ffffff" style={styles.header_icon} onPress={() => navigation.goBack()}/>
-                </Text>
-              </TouchableOpacity>
-              <Text style={styles.header_Text}>Beauty Salon</Text>
+            <View style={{ backgroundColor: '#D20909', padding: 12, alignItems: 'center' }}>
+              {/* <Ionicons name="arrow-back" size={25} style={styles.header_icon} onPress={() => navigation.goBack()} /> */}
+              <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Appointments</Text>
             </View>
-            <View style={{ width: '80%', marginLeft: '8%',position:'absolute',bottom:0 }}>
-              <SegmentedControlTab
-                values={["Upcoming", "Past", "Cancel"]}
-                // selectedIndex={customStyleIndex}
-                //onTabPress={this.handleCustomIndexSelect}
-                borderRadius={10}
-                // selectedIndex={0}
-                //width={150}
-                tabsContainerStyle={{
-                  //  backgroundColor: 'gray', 
-                  borderWidth: 0,
-                  borderColor: 'transparent',
-                  // marginTop:'5%'
-                }}
-                tabStyle={{
-                  backgroundColor: '#D20909',
-                  // color:'white',
-                  borderWidth: 0,
-                  borderColor: 'transparent',
-                  // borderRadius:50,
-                  marginTop: 12,
-                }}
-                activeTabStyle={{
-                  backgroundColor: '#D20909',
-                  //marginTop: 22, 
-                  // textDecorationLine: 'underline'
-                }}
-                tabTextStyle={{
-                  color: '#DCDCDC',
-                  fontWeight: 'bold',
-                  fontFamily: 'Handel Gothic',
-                  fontSize: 18,
-                  
-                }}
-                activeTabTextStyle={{
-                  color: '#ffffff',
-                  paddingBottom:6,
-                  borderBottomColor: 'white',
-                  borderBottomWidth:2,
-                  // textDecorationLine: 'underline'
-                }}
-                // activeTabStyle={{ color: 'white', backgroundColor: 'white' }}
-                selectedIndex={selectedIndex}
-                onTabPress={handleIndexChange}
 
-              />
-            </View>
 
           </View>
+
+          <View style={{ width: '90%', marginLeft: '5%', }}>
+            <SegmentedControlTab
+              values={["Upcoming", "Past", "Cancel"]}
+              // selectedIndex={customStyleIndex}
+              //onTabPress={this.handleCustomIndexSelect}
+              borderRadius={2}
+              // selectedIndex={0}
+              //width={150}
+              tabsContainerStyle={{
+                //  backgroundColor: 'gray', 
+                borderWidth: 0,
+                borderColor: 'transparent',
+                // marginTop:'5%'
+              }}
+              tabStyle={{
+                opacity: 0.8,
+                shadowColor: 'black',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 2,
+                shadowRadius: 2,
+                elevation: 4,
+                backgroundColor: '#fff',
+                // color:'white',
+                borderWidth: 0,
+                borderColor: 'transparent',
+                // borderRadius:50,
+                marginVertical: 12,
+              }}
+              activeTabStyle={{
+                backgroundColor: '#D20909',
+                
+                //marginTop: 22, 
+                // textDecorationLine: 'underline'
+              }}
+              tabTextStyle={{
+                color: 'grey',
+                fontWeight: 'bold',
+                fontFamily: 'Handel Gothic',
+                fontSize: 18,
+
+              }}
+              activeTabTextStyle={{
+                color: 'white',
+              }}
+              selectedIndex={selectedIndex}
+              onTabPress={handleIndexChange}
+
+            />
+          </View>
+
+
+
+
+
           {selectedIndex == 0 ?
             <ScrollView style={{ flex: 1 }}>
-              <View style={{ marginLeft: '5%', width: '90%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
+
+
+              {
+                upcoming.map((item, index) => (
+                  <View style={styles.card} key={index}>
+                    <View style={styles.topContainer}>
+                      <View style={styles.imageContainer}>
+                        <Image source={item.image} style={styles.topImage} />
+                      </View>
+                      <Text style={[styles.topText, { color: 'purple' }]}>{item.status}</Text>
+                    </View>
+
+                    <View>
+                      <Text style={styles.bottomTitle}>{item.title}</Text>
+                      <Text style={styles.bottomDesc}>{item.desc}</Text>
+                      <Text style={styles.bottomDesc}>{item.time}</Text>
+
+                      <View style={{ flexDirection: 'row', marginTop: 6 }}>
+                        <Entypo name="star" color="#FDCC0D" size={18} />
+                        <Entypo name="star" color="#FDCC0D" size={18} />
+                        <Entypo name="star" color="#FDCC0D" size={18} />
+                        <Entypo name="star" color="#FDCC0D" size={18} />
+                        <Entypo name="star" color="#FDCC0D" size={18} />
+                      </View>
+                    </View>
+                    <Text style={styles.cardPrice}>( $45 )</Text>
+                  </View>
+                ))
+              }
+
+
+
+
+
+
+              {/* <View style={{ marginLeft: '5%', width: '90%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, }}>
+                <View style={{ borderTopLeftRadius: 8, borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
+                  <TouchableOpacity onPress={() => { }}>
                     <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>CONFIRM</Text>
                   </TouchableOpacity>
                 </View>
@@ -120,22 +219,22 @@ export default function MyAppointmentScreen({ navigation }) {
                 <View style={{ flex: 2.6, flexDirection: 'row' }}>
                   <View>
                     <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
+                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10, marginRight: 10 }}
                       source={require('../images/hair1.jpg')}
                     />
                   </View>
 
                   <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6, color: 'black' }}>Addictive Beauty</Text>
+                    <Text style={{ fontSize: 16, color: 'grey', width: '95%', }}>West minister Business Road ,UK</Text>
                     <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
 
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
+                    <View style={{ flexDirection: 'row', marginVertical: 6 }}>
+                      <Entypo name="star" color="#FDCC0D" size={18} />
+                      <Entypo name="star" color="#FDCC0D" size={18} />
+                      <Entypo name="star" color="#FDCC0D" size={18} />
+                      <Entypo name="star" color="#FDCC0D" size={18} />
+                      <Entypo name="star" color="#FDCC0D" size={18} />
                     </View>
                   </View>
 
@@ -143,542 +242,256 @@ export default function MyAppointmentScreen({ navigation }) {
 
                 </View>
 
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
+                <View style={{ flex: 1, borderTopWidth: 1, alignItems: 'center', padding: 6, }}>
                   <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
 
                 </View>
 
-              </View>
-
-              <View style={{ marginLeft: '5%', width: '90%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>CONFIRM</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
-
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
+              </View> */}
             </ScrollView>
             : selectedIndex == 1 ?
               <>
                 <ScrollView style={{ flex: 1 }}>
-                <View style={{ marginLeft: '5%', width: '90%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>Completed</Text>
-                  </TouchableOpacity>
-                </View>
 
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
+                  {
+                    past.map((item, index) => (
+                      <View style={styles.card} key={index}>
+                        <View style={styles.topContainer}>
+                          <View style={styles.imageContainer}>
+                            <Image source={item.image} style={styles.topImage} />
+                          </View>
+                          <Text style={[styles.topText, { color: 'green' }]}>{item.status}</Text>
+                        </View>
 
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
+                        <View>
+                          <Text style={styles.bottomTitle}>{item.title}</Text>
+                          <Text style={styles.bottomDesc}>{item.desc}</Text>
+                          <Text style={styles.bottomDesc}>{item.time}</Text>
 
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
+                          <View style={{ flexDirection: 'row', marginTop: 6 }}>
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                          </View>
+                        </View>
+                        <Text style={styles.cardPrice}>( $45 )</Text>
+                      </View>
+                    ))
+                  }
 
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
-
-              <View style={{ marginLeft: '5%', width: '90%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>Completed</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
-
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
                 </ScrollView>
               </>
               :
               <>
                 <ScrollView style={{ flex: 1 }}>
-                <View style={{ marginLeft: '5%', width: '90%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>Cancelled</Text>
-                  </TouchableOpacity>
-                </View>
+                  {
+                    cancel.map((item, index) => (
+                      <View style={styles.card} key={index}>
+                        <View style={styles.topContainer}>
+                          <View style={styles.imageContainer}>
+                            <Image source={item.image} style={styles.topImage} />
+                          </View>
+                          <Text style={styles.topText}>{item.status}</Text>
+                        </View>
 
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
+                        <View>
+                          <Text style={styles.bottomTitle}>{item.title}</Text>
+                          <Text style={styles.bottomDesc}>{item.desc}</Text>
+                          <Text style={styles.bottomDesc}>{item.time}</Text>
 
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
-
-              <View style={{ marginLeft: '5%', width: '90%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>Cancelled</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
-
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
+                          <View style={{ flexDirection: 'row', marginTop: 6 }}>
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                          </View>
+                        </View>
+                        <Text style={styles.cardPrice}>( $45 )</Text>
+                      </View>
+                    ))
+                  }
                 </ScrollView>
               </>
           }
         </>
         :
         <ScrollView>
-        <>
-          <View style={styles.header_container}>
-            <View style={{ flexDirection: 'row',justifyContent:'center' }}>
-              <TouchableOpacity style={styles.header_icon} onPress={() => navigation.goBack()}>
-                <Text  >
-                <Ionicons name="arrow-back" size={25} color="#ffffff" style={styles.header_icon} onPress={() => navigation.goBack()}/>
-                </Text>
-              </TouchableOpacity>
-              <Text style={styles.header_Text}>Beauty Salon</Text>
-            </View>
-            <View style={{ width: '80%', marginLeft: '8%', marginTop: '3%',position:'absolute',bottom:0 }}>
-              <SegmentedControlTab
-                values={["Upcoming", "Past", "Cancel"]}
-                // selectedIndex={customStyleIndex}
-                //onTabPress={this.handleCustomIndexSelect}
-                borderRadius={10}
-                // selectedIndex={0}
-                //width={150}
-                tabsContainerStyle={{
-                  //  backgroundColor: 'gray', 
-                  borderWidth: 0,
-                  borderColor: 'transparent',
-                  marginTop:'5%'
-                }}
-                tabStyle={{
-                  backgroundColor: '#D20909',
-                  // color:'white',
-                  borderWidth: 0,
-                  borderColor: 'transparent',
-                  // borderRadius:50,
-                  marginTop: 22,
-                }}
-                activeTabStyle={{
-                  backgroundColor: '#D20909',
-                  //marginTop: 22, 
-                  // textDecorationLine: 'underline'
-                }}
-                tabTextStyle={{
-                  color: '#DCDCDC',
-                  fontWeight: 'bold',
-                  fontFamily: 'Handel Gothic',
-                  fontSize: 18,
-                  
-                }}
-                activeTabTextStyle={{
-                  color: '#ffffff',
-                  paddingBottom:6,
-                  borderBottomColor: 'white',
-                  borderBottomWidth:2,
-                  // textDecorationLine: 'underline'
-                }}
-                // activeTabStyle={{ color: 'white', backgroundColor: 'white' }}
-                selectedIndex={selectedIndex}
-                onTabPress={handleIndexChange}
-
-              />
+          <>
+            <View style={styles.header_container}>
+            <View style={{ backgroundColor: '#D20909', padding: 12, alignItems: 'center' }}>
+              {/* <Ionicons name="arrow-back" size={25} style={styles.header_icon} onPress={() => navigation.goBack()} /> */}
+              <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Appointments</Text>
             </View>
 
+            </View>
+
+            <View style={{ width: '90%', marginLeft: '5%', }}>
+            <SegmentedControlTab
+              values={["Upcoming", "Past", "Cancel"]}
+              // selectedIndex={customStyleIndex}
+              //onTabPress={this.handleCustomIndexSelect}
+              borderRadius={2}
+              // selectedIndex={0}
+              //width={150}
+              tabsContainerStyle={{
+                //  backgroundColor: 'gray', 
+                borderWidth: 0,
+                borderColor: 'transparent',
+                // marginTop:'5%'
+              }}
+              tabStyle={{
+                backgroundColor: '#D20909',
+                opacity: 0.8,
+                shadowColor: 'black',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 2,
+                shadowRadius: 2,
+                elevation: 4,
+                backgroundColor: '#fff',
+                // color:'white',
+                borderWidth: 0,
+                borderColor: 'transparent',
+                // borderRadius:50,
+                marginTop: 12,
+              }}
+              activeTabStyle={{
+                backgroundColor: '#D20909',
+                
+                //marginTop: 22, 
+                // textDecorationLine: 'underline'
+              }}
+              tabTextStyle={{
+                color: 'grey',
+                fontWeight: 'bold',
+                fontFamily: 'Handel Gothic',
+                fontSize: 18,
+
+              }}
+              activeTabTextStyle={{
+                color: 'white',
+              }}
+              selectedIndex={selectedIndex}
+              onTabPress={handleIndexChange}
+
+            />
           </View>
-          {selectedIndex == 0 ?
-            <ScrollView style={{ flex: 1 }}>
-            <View style={{flexDirection: 'row'}}>
-              <View style={{ marginLeft: '4%', width: '45%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>CONFIRM</Text>
-                  </TouchableOpacity>
+
+
+
+            {selectedIndex == 0 ?
+              <ScrollView style={{ flex: 1 }}>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', width: '90%', marginLeft: '5%' }}>
+
+                  {
+                    upcoming.map((item, index) => (
+                      <View style={[styles.card, { width: '48%', marginLeft: 0, }]} key={index}>
+                        <View style={styles.topContainer}>
+                          <View style={styles.imageContainer}>
+                            <Image source={item.image} style={styles.topImage} />
+                          </View>
+                          <Text style={[styles.topText, { color: 'purple' }]}>{item.status}</Text>
+                        </View>
+
+                        <View>
+                          <Text style={styles.bottomTitle}>{item.title}</Text>
+                          <Text style={styles.bottomDesc}>{item.desc}</Text>
+                          <Text style={styles.bottomDesc}>{item.time}</Text>
+
+                          <View style={{ flexDirection: 'row', marginTop: 6 }}>
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                            <Entypo name="star" color="#FDCC0D" size={18} />
+                          </View>
+                        </View>
+                        <Text style={styles.cardPrice}>( $45 )</Text>
+                      </View>
+                    ))
+                  }
+
+
                 </View>
+              </ScrollView>
+              : selectedIndex == 1 ?
+                <>
+                  <ScrollView style={{ flex: 1 }}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', width: '90%', marginLeft: '5%' }}>
 
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
+                      {
+                        past.map((item, index) => (
+                          <View style={[styles.card, { width: '48%', marginLeft: 0, }]} key={index}>
+                            <View style={styles.topContainer}>
+                              <View style={styles.imageContainer}>
+                                <Image source={item.image} style={styles.topImage} />
+                              </View>
+                              <Text style={[styles.topText, { color: 'green' }]}>{item.status}</Text>
+                            </View>
 
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
+                            <View>
+                              <Text style={styles.bottomTitle}>{item.title}</Text>
+                              <Text style={styles.bottomDesc}>{item.desc}</Text>
+                              <Text style={styles.bottomDesc}>{item.time}</Text>
 
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
+                              <View style={{ flexDirection: 'row', marginTop: 6 }}>
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                              </View>
+                            </View>
+                            <Text style={styles.cardPrice}>( $45 )</Text>
+                          </View>
+                        ))
+                      }
+
+
                     </View>
-                  </View>
+                  </ScrollView>
+                </>
+                :
+                <>
+                  <ScrollView style={{ flex: 1 }}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', width: '90%', marginLeft: '5%' }}>
+
+                      {
+                        cancel.map((item, index) => (
+                          <View style={[styles.card, { width: '48%', marginLeft: 0, }]} key={index}>
+                            <View style={styles.topContainer}>
+                              <View style={styles.imageContainer}>
+                                <Image source={item.image} style={styles.topImage} />
+                              </View>
+                              <Text style={styles.topText}>{item.status}</Text>
+                            </View>
+
+                            <View>
+                              <Text style={styles.bottomTitle}>{item.title}</Text>
+                              <Text style={styles.bottomDesc}>{item.desc}</Text>
+                              <Text style={styles.bottomDesc}>{item.time}</Text>
+
+                              <View style={{ flexDirection: 'row', marginTop: 6 }}>
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                                <Entypo name="star" color="#FDCC0D" size={18} />
+                              </View>
+                            </View>
+                            <Text style={styles.cardPrice}>( $45 )</Text>
+                          </View>
+                        ))
+                      }
 
 
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
-
-              <View style={{ marginLeft: '4%', width: '45%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>CONFIRM</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
-
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
                     </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
-              </View>
-            </ScrollView>
-            : selectedIndex == 1 ?
-              <>
-                <ScrollView style={{ flex: 1 }}>
-                <View style={{flexDirection: 'row'}}>
-              <View style={{ marginLeft: '4%', width: '45%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>Completed</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
-
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
-
-              <View style={{ marginLeft: '4%', width: '45%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>Completed</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
-
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
-              </View>
-                </ScrollView>
-              </>
-              :
-              <>
-                <ScrollView style={{ flex: 1 }}>
-                <View style={{flexDirection: 'row'}}>
-              <View style={{ marginLeft: '4%', width: '45%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>Cancelled</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
-
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
-
-              <View style={{ marginLeft: '4%', width: '45%', borderWidth: 1, borderRadius: 8, flexDirection: 'column', marginBottom: 30, marginTop: 60 }}>
-                <View style={{ borderTopLeftRadius: 8,borderTopRightRadius: 8, flex: 1, backgroundColor: '#D20909' }}>
-                  <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center', paddingTop: 12, color: 'white' }}>Cancelled</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 2.6, flexDirection: 'row' }}>
-                  <View>
-                    <Image
-                      style={{ width: 80, height: 80, marginTop: 10, borderRadius: 10, marginLeft: 10,marginRight: 10 }}
-                      source={require('../images/hair1.jpg')}
-                    />
-                  </View>
-
-                  <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, marginTop: 6,  color: 'black' }}>Addictive Beauty</Text>
-                    <Text style={{ fontSize: 16,  color: 'grey',width:'95%',}}>West minister Business Road ,UK</Text>
-                    <Text style={{ fontSize: 16, color: 'grey' }}>16,April 2020-05:00 pm</Text>
-
-                    <View style={{ flexDirection: 'row',marginVertical:6}}>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                      <Entypo name="star" color="#FDCC0D" size={18}/>
-                    </View>
-                  </View>
-
-
-
-                </View>
-
-                <View style={{ flex: 1, borderTopWidth: 1, alignItems:'center',padding:6,}}>
-                  <Text style={{ fontWeight: 'bold', fontSize: 18, marginLeft: 'auto', paddingLeft: 30, color: '#D20909' }}> Total Price : $85</Text>
-
-                </View>
-
-              </View>
-              </View>
-                </ScrollView>
-              </>
-          }
-        </>
+                  </ScrollView>
+                </>
+            }
+          </>
         </ScrollView>
       }
     </View>
@@ -690,41 +503,23 @@ export default function MyAppointmentScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // padding: 5,
-    // paddingTop: 15,
-    // backgroundColor: 'yellow'
-    //paddingTop: 300
+    backgroundColor: 'white'
   },
-  
-  header_container: {
-    // flex: 0.3,
-    // backgroundColor: '#D20909',
-    // borderBottomLeftRadius: 30,
-    // borderBottomRightRadius: 30
 
-    // flex: 0.16,
-    height:windowHeight * 0.15,
+  header_container: {
+
+    // height: windowHeight * 0.15,
     backgroundColor: '#D20909',
-    // borderBottomLeftRadius: 20,
-    // borderBottomRightRadius: 20,
-    position:'relative',
-    // backgroundColor:'black'
+    position: 'relative',
   },
   header_container_landscape: {
-    // flex: 0.3,
-    // backgroundColor: '#D20909',
-    // borderBottomLeftRadius: 30,
-    // borderBottomRightRadius: 30
-
     flex: 0.3,
     backgroundColor: '#D20909',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
-    // backgroundColor:'black'
   },
   header_Text: {
     fontSize: 20,
-    // marginLeft: '18%',
     marginTop: '4%',
     fontWeight: 'bold',
     color: 'white',
@@ -747,10 +542,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',
-    position:'absolute',
-    left:20,
-    
-},
+    position: 'absolute',
+    left: 20,
+
+  },
   text: {
     margin: 1,
     height: 40,
@@ -758,8 +553,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 15,
     color: '#000'
-
-    //borderWidth: 1
 
   },
 
@@ -781,5 +574,64 @@ const styles = StyleSheet.create({
     color: '#000',
     fontWeight: 'bold',
     fontSize: 17
+  },
+  card: {
+    width: '90%',
+    marginLeft: '5%',
+    marginTop: 10,
+    marginBottom: 10,
+    borderRadius: 10,
+    margin: 5,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 2,
+    shadowRadius: 2,
+    elevation: 4,
+    backgroundColor: '#fff',
+    padding: 12,
+    opacity: 0.8,
+  },
+  topContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  topImage: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+  },
+  imageContainer: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 2,
+    shadowRadius: 2,
+    elevation: 40,
+    backgroundColor: '#fff',
+    // padding: 12,
+  },
+  topText: {
+    color: '#D20909',
+    fontSize: 20,
+    fontWeight: 'bold',
+    opacity: 0.4,
+  },
+  bottomTitle: {
+    color: 'black',
+    fontSize: 18,
+
+  },
+  bottomDesc: {
+    color: 'grey',
+    fontSize: 12,
+  },
+  cardPrice: {
+    opacity: 0.4,
+    color: '#D20909',
+    fontSize: 20,
+    textAlign: 'right',
   }
+
 })

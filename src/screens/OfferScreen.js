@@ -32,13 +32,17 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                  {OrientationStatus == 'PortraitMode' ?
                  <>
                  <View style={{ backgroundColor: '#D20909', padding: 12, alignItems: 'center',marginBottom:12 }}>
-                <Ionicons name="arrow-back" size={25} style={styles.header_icon} onPress={() => navigation.goBack()} />
-                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Offers</Text>
-            </View>
+                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Offers</Text>
+                </View>
             
             <ScrollView>
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
-                <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: 'black',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 2,
+                shadowRadius: 2,
+                elevation: 4,
+                backgroundColor: '#fff',}}>
+                <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',}}>
                     <Text style={{color:'white',fontSize:16,fontWeight:'bold', transform:[{rotate:'-90deg'}]}}>Discount</Text>
                 </View>
                 <View style={{padding:'2%',width:'80%'}}>
@@ -56,8 +60,13 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                 </View>
             </View>
 
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
-                <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: 'black',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 2,
+                shadowRadius: 2,
+                elevation: 4,
+                backgroundColor: '#fff',}}>
+                <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',}}>
                     <Text style={{color:'white',fontSize:16,fontWeight:'bold', transform:[{rotate:'-90deg'}]}}>Discount</Text>
                 </View>
                 <View style={{padding:'2%',width:'80%'}}>
@@ -75,8 +84,13 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                 </View>
             </View>
             
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
-                <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: 'black',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 2,
+                shadowRadius: 2,
+                elevation: 4,
+                backgroundColor: '#fff',}}>
+                <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',}}>
                     <Text style={{color:'white',fontSize:16,fontWeight:'bold', transform:[{rotate:'-90deg'}]}}>Discount</Text>
                 </View>
                 <View style={{padding:'2%',width:'80%'}}>
@@ -97,13 +111,9 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
             </>
             :
             <ScrollView>
-            <View style={{ width: '100%', backgroundColor: '#D20909', height:windowHeight * 0.20,position:'relative',marginBottom:'6%' }}>
-                <Ionicons name="arrow-back" size={25} color="#ffffff" style={[styles.header_icon,{marginTop:'3%'}]} onPress={() => navigation.goBack()}/>
-        <View>
-            <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', alignSelf: 'center', marginVertical: 20 }}>Offers
-            </Text>
-        </View>
-    </View>
+            <View style={{ backgroundColor: '#D20909', padding: 12, alignItems: 'center',marginBottom:12 }}>
+                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Offers</Text>
+                </View>
             
             <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
                 <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
@@ -171,6 +181,7 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: 'white',
         // padding: 5,
         // paddingTop: 15,
        // backgroundColor: '#fff'

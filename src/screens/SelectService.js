@@ -10,7 +10,7 @@ export default function SelectService({navigation,route}) {
     const {data} = route.params;
     return (
         
-        <View style={{flex:1}}>
+        <View style={{flex:1,backgroundColor:'white'}}>
             <View style={{ width: '100%', backgroundColor: '#D20909', height:60,position:'relative' }}>
 
             <Ionicons name="arrow-back" size={25} color="#ffffff" style={styles.header_icon} onPress={() => navigation.goBack()}/>
