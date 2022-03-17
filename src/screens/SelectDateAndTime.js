@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
-import { StyleSheet, View, Button, Text, TouchableOpacity, Image,ScrollView } from 'react-native';
+import { StyleSheet, View, Button, Text, TouchableOpacity, Image,ScrollView,SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function SelectDateAndTime({navigation}) {
  
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
         <ScrollView>
            <View style={{backgroundColor:'white',marginLeft:15, marginRight:15,marginBottom:'6%',alignItems:'center'}}>
            <Ionicons name="arrow-back" size={25} style={styles.header_icon} onPress={() => navigation.goBack()}/>
@@ -55,7 +55,7 @@ export default function SelectDateAndTime({navigation}) {
         <TouchableOpacity onPress={()=>navigation.navigate('TimeAndDate')} style={{ backgroundColor: '#D20909',}}>
                 <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: 'bold', marginVertical: 10 }}>Continue</Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     );
 
 }

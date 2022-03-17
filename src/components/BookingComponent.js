@@ -1,6 +1,6 @@
 //import liraries
 import React, {useState, useEffect} from 'react';
-import {View, Text, Pressable, ScrollView,Dimensions,TouchableOpacity} from 'react-native';
+import {View, Text, Pressable, ScrollView,Dimensions,SafeAreaView} from 'react-native';
 // import colors from '../constants/colors';
 // import Dimensions from '../constants/Dimensions';
 // import * as Animatable from 'react-native-animatable';
@@ -64,7 +64,7 @@ const BookingComponent = ({navigation}) => {
   };
 
   return (
-    <View animation="slideInUp" style={styles.container}>
+    <SafeAreaView  style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
       <Pressable onPress={showDatePicker}>
         <View style={styles.inner} >
@@ -115,7 +115,7 @@ const BookingComponent = ({navigation}) => {
         onCancel={hideDatePicker}
         style={styles.datePicker}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -124,13 +124,13 @@ const styles = ScaledSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: 'white',
-    width: WIDTH,
+    width: "100%",
     position: 'relative',
   },
   inner: {
     paddingHorizontal: '12@s',
     backgroundColor: '#D20909',
-    width: WIDTH,
+    width: "100%",
     // marginTop: '10@s',
     flexDirection: 'row',
     alignItems: 'center',

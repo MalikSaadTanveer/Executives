@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, View, Button, Text, TouchableOpacity, Image, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, View, Button, Text, TouchableOpacity, Image, ScrollView, Dimensions,SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SegmentedControlTab from "react-native-segmented-control-tab";
@@ -21,14 +21,6 @@ export default function MyAppointmentScreen({ navigation }) {
 
   const [OrientationStatus, setorientationStatus] = useState('PortraitMode');
   useEffect(() => {
-    // if(windowHeight>windowWidth){
-    //     setorientationStatus('PortraitMode')
-    //     console.log("height is greater ")
-    // }else{
-    //     setorientationStatus('LandscapeMode')
-
-    //     console.log("width is greater")
-    // }
     const d = Dimensions.addEventListener('change', getOrientation);
     return () => {
       d.remove();
@@ -106,7 +98,7 @@ export default function MyAppointmentScreen({ navigation }) {
 
 
 
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {OrientationStatus == 'PortraitMode' ?
         <>
           <View style={styles.header_container}>
@@ -494,7 +486,7 @@ export default function MyAppointmentScreen({ navigation }) {
           </>
         </ScrollView>
       }
-    </View>
+    </SafeAreaView>
   );
 
 }
@@ -582,14 +574,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 10,
     margin: 5,
-    shadowColor: 'black',
+    shadowColor: '#D20909',
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 2,
     shadowRadius: 2,
     elevation: 4,
     backgroundColor: '#fff',
     padding: 12,
-    opacity: 0.8,
+    opacity: 1,
   },
   topContainer: {
     flexDirection: 'row',
@@ -632,6 +624,7 @@ const styles = StyleSheet.create({
     color: '#D20909',
     fontSize: 20,
     textAlign: 'right',
+    marginTop:-20,
   }
 
 })

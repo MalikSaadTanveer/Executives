@@ -1,6 +1,6 @@
 //import liraries
 import React, {useState} from 'react';
-import {View, Text, StyleSheet,ScrollView,Dimensions,TouchableOpacity,Modal,Image} from 'react-native';
+import {View, Text, StyleSheet,ScrollView,Dimensions,TouchableOpacity,Modal,Image,SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import BookingComponent from '../components/BookingComponent';
@@ -21,7 +21,7 @@ const TimeAndDate = ({navigation}) => {
 
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* <ScrollView> */}
         <View style={{backgroundColor:'white',marginLeft:15, marginRight:15,marginBottom:'3%',alignItems:'center'}}>
             <Ionicons name="arrow-back" size={25} color="#ffffff" style={styles.header_icon} onPress={() => navigation.goBack()}/>
@@ -49,7 +49,7 @@ const TimeAndDate = ({navigation}) => {
           </View>
         </View>
       </Modal>
-    </View>
+    </SafeAreaView>
   );
 };
 

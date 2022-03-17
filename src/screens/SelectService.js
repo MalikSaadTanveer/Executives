@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView,Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView,Dimensions,SafeAreaView } from 'react-native';
 import CheckBox from 'react-native-check-box';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -10,7 +10,7 @@ export default function SelectService({navigation,route}) {
     const {data} = route.params;
     return (
         
-        <View style={{flex:1,backgroundColor:'white'}}>
+        <SafeAreaView style={{flex:1,backgroundColor:'white'}}>
             <View style={{ width: '100%', backgroundColor: '#D20909', height:60,position:'relative' }}>
 
             <Ionicons name="arrow-back" size={25} color="#ffffff" style={styles.header_icon} onPress={() => navigation.goBack()}/>
@@ -40,7 +40,7 @@ export default function SelectService({navigation,route}) {
                 <Text style={{ color: 'white', textAlign: 'center', fontSize: 20, fontWeight: 'bold', marginVertical: 10 }}>Book Now</Text>
             </TouchableOpacity>
             {/* </View> */}
-        </View>
+        </SafeAreaView>
 
 
     );

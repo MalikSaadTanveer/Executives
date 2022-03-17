@@ -13,6 +13,12 @@ import SelectService from './src/screens/SelectService';
 import SelectDateAndTime from './src/screens/SelectDateAndTime';
 import BarbersDetails from './src/screens/BarbersDetails';
 import TimeAndDate from './src/screens/TimeAndDate';
+import AppointmentsOnlyScreen from './src/screens/AppointmentsOnlyScreen';
+import Favourites from './src/screens/Favourites';
+import Ratings from './src/screens/Ratings';
+import CustomerSupport from './src/screens/CustomerSupport';
+
+
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
@@ -30,6 +36,10 @@ export default function App() {
         <Stack.Screen name='SelectDateAndTime' component={SelectDateAndTime} />
         <Stack.Screen name='BarbersDetails' component={BarbersDetails} />
         <Stack.Screen name='TimeAndDate' component={TimeAndDate} />
+        <Stack.Screen name='AppointmentsOnlyScreen' component={AppointmentsOnlyScreen} />
+        <Stack.Screen name='Favourites' component={Favourites} />
+        <Stack.Screen name='Ratings' component={Ratings} />
+        <Stack.Screen name='CustomerSupport' component={CustomerSupport} />
 
       </Stack.Navigator>
     </NavigationContainer>

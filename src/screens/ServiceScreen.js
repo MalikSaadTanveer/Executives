@@ -60,7 +60,7 @@ export default function ServiceScreen({navigation}) {
             />
         </View>
 
-      </View >
+      </View>
     </View>
   )
 }

@@ -1,4 +1,4 @@
-import { StyleSheet, View, Button, Text, TouchableOpacity, Image ,Dimensions, ScrollView} from 'react-native';
+import { StyleSheet, View, Button, Text, TouchableOpacity, Image ,Dimensions, ScrollView,SafeAreaView} from 'react-native';
 import React, { useEffect, useState } from 'react'
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -28,7 +28,7 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
         }
     };
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
                  {OrientationStatus == 'PortraitMode' ?
                  <>
                  <View style={{ backgroundColor: '#D20909', padding: 12, alignItems: 'center',marginBottom:12 }}>
@@ -36,7 +36,7 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                 </View>
             
             <ScrollView>
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: 'black',
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: '#D20909',
                 shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 2,
                 shadowRadius: 2,
@@ -60,7 +60,7 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                 </View>
             </View>
 
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: 'black',
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: '#D20909',
                 shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 2,
                 shadowRadius: 2,
@@ -84,7 +84,7 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                 </View>
             </View>
             
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: 'black',
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,marginTop:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: '#D20909',
                 shadowOffset: { width: 0, height: 5 },
                 shadowOpacity: 2,
                 shadowRadius: 2,
@@ -115,7 +115,12 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                     <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Offers</Text>
                 </View>
             
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: '#D20909',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 2,
+                shadowRadius: 2,
+                elevation: 4,
+                backgroundColor: '#fff',}}>
                 <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
                     <Text style={{color:'white',fontSize:16,fontWeight:'bold', transform:[{rotate:'-90deg'}]}}>Discount</Text>
                 </View>
@@ -134,7 +139,12 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                 </View>
             </View>
 
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: '#D20909',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 2,
+                shadowRadius: 2,
+                elevation: 4,
+                backgroundColor: '#fff',}}>
                 <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
                     <Text style={{color:'white',fontSize:16,fontWeight:'bold', transform:[{rotate:'-90deg'}]}}>Discount</Text>
                 </View>
@@ -153,7 +163,12 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
                 </View>
             </View>
             
-            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderColor:'#D20909',borderWidth:1,borderRadius:6,alignItems:'stretch'}}>
+            <View style={{width:'90%',marginLeft:'5%',marginBottom:10,flexDirection:'row',borderRadius:6,alignItems:'stretch',shadowColor: '#D20909',
+                shadowOffset: { width: 0, height: 5 },
+                shadowOpacity: 2,
+                shadowRadius: 2,
+                elevation: 4,
+                backgroundColor: '#fff',}}>                
                 <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#D20909',borderRadius:4}}>
                     <Text style={{color:'white',fontSize:16,fontWeight:'bold', transform:[{rotate:'-90deg'}]}}>Discount</Text>
                 </View>
@@ -174,7 +189,7 @@ export default function OfferScreen({ navigation, navigation: { goBack }}) {
         
             </ScrollView>
             }
-        </View>
+        </SafeAreaView>
     );
 }
 

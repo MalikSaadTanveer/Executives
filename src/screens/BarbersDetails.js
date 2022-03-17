@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, Pressable, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Image, Pressable, ScrollView, SafeAreaView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import servicesData from '../constants/servicesData'
 import Entypo from 'react-native-vector-icons/Entypo'
@@ -45,9 +45,9 @@ const listData = [
 const BarbersDetails = ({ navigation, route }) => {
     const barberName = route.params?.barberName;
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={{ backgroundColor: '#D20909', padding: 12, alignItems: 'center' }}>
-                {/* <Ionicons name="arrow-back" size={25} style={styles.header_icon} onPress={() => navigation.goBack()} /> */}
+            {barberName &&  <Ionicons name="arrow-back" size={25} style={styles.header_icon} onPress={() => navigation.goBack()} />}
                 <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Categories</Text>
             </View>
 
@@ -73,39 +73,10 @@ const BarbersDetails = ({ navigation, route }) => {
                         ))
                     }
 
-
-
-                        {/* <View style={styles.card}>
-                            <View style={styles.topContainer}>
-                                <Image source={require('../images/kids.jpg')} style={styles.topImage} />
-                                <Text style={styles.topText}>Upcoming</Text>
-                            </View>
-
-                            <View>
-                                <Text style={styles.bottomTitle}>Addictive Beauty</Text>
-                                <Text style={styles.bottomDesc}>West minister Business Road ,UK</Text>
-                                <Text style={styles.bottomDesc}>16,April 2020-05:00 pm</Text>
-
-                                <View style={{ flexDirection: 'row', marginTop: 6 }}>
-                                    <Entypo name="star" color="#FDCC0D" size={18} />
-                                    <Entypo name="star" color="#FDCC0D" size={18} />
-                                    <Entypo name="star" color="#FDCC0D" size={18} />
-                                    <Entypo name="star" color="#FDCC0D" size={18} />
-                                    <Entypo name="star" color="#FDCC0D" size={18} />
-                                </View>
-                            </View>
-                            <Text style={styles.cardPrice}>( $45 )</Text>
-                        </View> */}
-
-
-
-
-
-
                 </ScrollView>
             </View>
 
-        </View>
+        </SafeAreaView>
     );
 };
 
@@ -123,7 +94,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 0,
         top: 14,
-        left: 12,
+        left: 20,
 
     },
     inner: {

@@ -5,7 +5,7 @@ import Ionicicons from 'react-native-vector-icons/Ionicons'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Entypo from 'react-native-vector-icons/Entypo'
 import AntDesign from 'react-native-vector-icons/AntDesign'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Feather from 'react-native-vector-icons/Feather'
 
 //import screens
 import HomeScreen from '../screens/HomeScreen';
@@ -43,44 +43,35 @@ export default function BottomTabNavigation() {
                 options={{
                    // tabBarIcon:{name:'home' ,size:25}
                     // () => <ButtonIconContainer name="home" />
-                    tabBarIcon: ({focused}) => {           return <AntDesign name="home" size={26} 
+                    tabBarIcon: ({focused}) => {           return <AntDesign name="home" size={focused? 34:26} style={{width:34}}
                     color={focused? '#edf2fa':'lightgrey'}/>; 
                             }  
                 }}
-                // tabBarOptions={{
-                //     activeTintColor: '#D20909',
-                //     inactiveTintColor: '#d9d9d9',
-                //     style: {
-                //       borderTopColor: '#66666666',
-                //       backgroundColor: '#D20909',
-                //       elevation: 0,
-                //     },
-                //   }}
             />
 
             <Tab.Screen name="Appointment" component={MyAppointmentScreen} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
-                tabBarIcon: ({focused}) => {           return <AntDesign name="calendar" size={26} color={focused? '#edf2fa':'lightgrey'}/>;          }  
+                tabBarIcon: ({focused}) => {           return <AntDesign name="calendar" size={focused? 34:26} color={focused? '#edf2fa':'lightgrey'} style={{width:34}}/>;          }  
             }}
             />
             <Tab.Screen name="Services" component={BarbersDetails} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
-                tabBarIcon: ({focused}) => {           return <Entypo name="archive" size={26} 
+                tabBarIcon: ({focused}) => {           return <Entypo name="archive" size={focused? 34:26} style={{width:34}}
                 color={focused? '#edf2fa':'lightgrey'}/>;          }  
             }}
             />
             <Tab.Screen name="Offers" component={Offer} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
-                tabBarIcon: ({focused}) => {           return <MaterialCommunityIcons name="offer" size={26}color={focused? '#edf2fa':'lightgrey'}/>;          }  
+                tabBarIcon: ({focused}) => {           return <Feather name="gift" size={focused? 34:26} color={focused? '#edf2fa':'lightgrey'} style={{width:34}}/>;          }  
             }}
             />
             <Tab.Screen name="Settings" component={MyProfileScreen} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
-                tabBarIcon: ({focused}) => {           return <AntDesign name="setting" size={26} 
+                tabBarIcon: ({focused}) => {           return <AntDesign name="setting" size={focused? 34:26} style={{width:34}}
                 color={focused? '#edf2fa':'lightgrey'}/>;         }  
             }}
             />

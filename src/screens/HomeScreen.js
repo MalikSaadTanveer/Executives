@@ -1,4 +1,4 @@
-import { View, Text, StatusBar, StyleSheet, TextInput, Image, ScrollView, TouchableOpacity, Dimensions } from 'react-native'
+import { View, Text, StatusBar, StyleSheet, TextInput, Image, ScrollView, TouchableOpacity, Dimensions,SafeAreaView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 //import { Icon } from 'react-native-vector-icons/icon';
@@ -38,7 +38,7 @@ export default function HomeScreen({ navigation }) {
         }
     };
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
 
             <View>
                 <StatusBar backgroundColor="#D20909"
@@ -615,7 +615,7 @@ export default function HomeScreen({ navigation }) {
                         </View>
                     </ScrollView>
             }
-        </View>
+        </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({
