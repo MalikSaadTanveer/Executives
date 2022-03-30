@@ -44,7 +44,7 @@ export default function BottomTabNavigation() {
                    // tabBarIcon:{name:'home' ,size:25}
                     // () => <ButtonIconContainer name="home" />
                     tabBarIcon: ({focused}) => {           return <AntDesign name="home" size={focused? 34:26} style={{width:34}}
-                    color={focused? '#edf2fa':'lightgrey'}/>; 
+                    color={focused? '#edf2fa':'black'}/>; 
                             }  
                 }}
             />
@@ -52,27 +52,27 @@ export default function BottomTabNavigation() {
             <Tab.Screen name="Appointment" component={MyAppointmentScreen} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
-                tabBarIcon: ({focused}) => {           return <AntDesign name="calendar" size={focused? 34:26} color={focused? '#edf2fa':'lightgrey'} style={{width:34}}/>;          }  
+                tabBarIcon: ({focused}) => {           return <AntDesign name="calendar" size={focused? 34:26} color={focused? '#edf2fa':'black'} style={{width:34}}/>;          }  
             }}
             />
             <Tab.Screen name="Services" component={BarbersDetails} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
                 tabBarIcon: ({focused}) => {           return <Entypo name="archive" size={focused? 34:26} style={{width:34}}
-                color={focused? '#edf2fa':'lightgrey'}/>;          }  
+                color={focused? '#edf2fa':'black'}/>;          }  
             }}
             />
             <Tab.Screen name="Offers" component={Offer} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
-                tabBarIcon: ({focused}) => {           return <Feather name="gift" size={focused? 34:26} color={focused? '#edf2fa':'lightgrey'} style={{width:34}}/>;          }  
+                tabBarIcon: ({focused}) => {           return <Feather name="gift" size={focused? 34:26} color={focused? '#edf2fa':'black'} style={{width:34}}/>;          }  
             }}
             />
             <Tab.Screen name="Settings" component={MyProfileScreen} 
              options={{
                 //tabBarIcon: () => <ButtonIconContainer name="persons" />
                 tabBarIcon: ({focused}) => {           return <AntDesign name="setting" size={focused? 34:26} style={{width:34}}
-                color={focused? '#edf2fa':'lightgrey'}/>;         }  
+                color={focused? '#edf2fa':'black'}/>;         }  
             }}
             />
 

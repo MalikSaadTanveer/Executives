@@ -17,6 +17,7 @@ import AppointmentsOnlyScreen from './src/screens/AppointmentsOnlyScreen';
 import Favourites from './src/screens/Favourites';
 import Ratings from './src/screens/Ratings';
 import CustomerSupport from './src/screens/CustomerSupport';
+import Notifications from './src/screens/Notifications';
 
 
 const Stack = createNativeStackNavigator();
@@ -40,6 +41,7 @@ export default function App() {
         <Stack.Screen name='Favourites' component={Favourites} />
         <Stack.Screen name='Ratings' component={Ratings} />
         <Stack.Screen name='CustomerSupport' component={CustomerSupport} />
+        <Stack.Screen name='Notifications' component={Notifications} />
 
       </Stack.Navigator>
     </NavigationContainer>
